@@ -135,11 +135,12 @@ class Voc_obj(object):
 
 
     def _rename_pre_voc(self,jpgs,xmls):
-        cur_date=datetime.datetime.now()
-        str_date = '{year}{month}{day}'.format(year=cur_date.year, month=cur_date.month, day=cur_date.day)
-        prefix='train'
+        #cur_date=datetime.datetime.now()
+        #str_date = '{year}{month}{day}'.format(year=cur_date.year, month=cur_date.month, day=cur_date.day)
+        #prefix='train'
+        id=10000
         for i,jpg in enumerate(jpgs):
-            io_utils.rename(jpg,os.path.abspath(os.path.join(jpg,'..','JPEGImages',prefix+'_'+str(str_date[0:4])+'-'+str(str_date[4:6])+'-'+str(str_date[6:8])+'_'+str(i)+'.jpg')))
+            io_utils.rename(jpg,os.path.abspath(os.path.join(jpg,'..','JPEGImages','{}_{}.jpg'.format(os.path.split(self.path)[1],id+i))))
         for xml in xmls:
             io_utils.rename(xml,os.path.abspath(os.path.join(xml,'..','Annotations',os.path.split(xml)[1])))
 
@@ -182,6 +183,10 @@ class Voc_obj(object):
             print('Exception in pascal_voc_parser: {}'.format(e))
         return im
 
+    def _load_xml(self,xml_path):
+        xml=xml_manager.Xml_manager(path=xml_path)
+        return xml
+
     def _load_xml_info(self,xml_path):
         xml=xml_manager.Xml_manager(path=xml_path)
         labels=xml.get_labels()
@@ -189,5 +194,15 @@ class Voc_obj(object):
         info=[[labels[i],boxes[i][0],boxes[i][1],boxes[i][2],boxes[i][3]]for i in range(len(labels))]
         return info
 
-voc=Voc_obj(path='/home/hyl/data/ljk/github-pro/zjai-com/data/train_data/fusion_2018-10-30_test',mode='load',scale=100)
-voc.before_train()
+    def rename_voc_file(self,id):
+        for obj in self.file_list:
+            [im_path,xml_path]=self.get_file_path(obj)
+            io_utils.rename(im_path,os.path.join(self.path,'JPEGImages','{}_{}.jpg'.format(os.path.split(self.path)[1],id)))
+            io_utils.rename(xml_path,os.path.join(self.path, 'Annotations', '{}_{}.xml'.format(os.path.split(self.path)[1], id)))
+            xml=self._load_xml(os.path.join(self.path, 'Annotations', '{}_{}.xml'.format(os.path.split(self.path)[1], id)))
+            xml.reload_path_attribute(os.path.join(self.path, 'Annotations', '{}_{}.xml'.format(os.path.split(self.path)[1], id)))
+            xml.save_xml()
+            id+=1
+
+voc=Voc_obj(path='/home/hyl/data/data-lyl/train_data_2018-11-07_3',mode='load',scale=100)
+# voc.before_train()

@@ -25,6 +25,7 @@ class Xml_manager(object):
             self._root = self._tree.getroot()
             self.find_labels()
             self.find_boxes()
+            self.find_size()
 
     def create_structure(self): #重建xml树结构
         self.load_default_attribute()
@@ -42,7 +43,7 @@ class Xml_manager(object):
         node_filename = SubElement(self._root, 'filename')
         node_filename.text = os.path.split(self._xml_path)[1][:-4]+'.jpg'
         node_path = SubElement(self._root, 'path')
-        node_path.text = os.path.split(self._xml_path)[0]
+        node_path.text = os.path.abspath(os.path.join(self._xml_path,'..','..','JPEGImages',os.path.split(self._xml_path)[1]+'.xml'))
 
     def load_size_attribute(self): #构建图像尺寸属性
         node_size = SubElement(self._root, 'size')
@@ -95,11 +96,21 @@ class Xml_manager(object):
 
     def reload_path_attribute(self,path): #重写路径属性
         self._xml_path=path
-        self.load_path_attribute()
+        self._root.findall('filename')[0].text=os.path.split(self._xml_path)[1]
+        self._root.findall('path')[0].text = os.path.abspath(os.path.join(self._xml_path,'..','..','JPEGImages',os.path.split(self._xml_path)[1][:-4]+'.jpg'))
 
-    def reload_size_attribute(self,size): #重写尺寸属性
-        self.size=size
-        self.load_size_attribute()
+    def reload_size_attribute(self,size): #重写尺寸属性\
+        if self.size==[]:
+            self.size = size
+            self.load_size_attribute()
+        else:
+            self.size = size
+            element_objs = self._root.findall('size')
+            element_objs[0].find('width')[0].text=self.size[0]
+            element_objs[0].find('height')[0].text=self.size[1]
+            element_objs[0].find('depth')[0].text=self.size[2]
+
+
 
     def reload_obj_attribute(self,labels,boxes): #重写目标物属性
         self._labels=labels
@@ -124,11 +135,13 @@ class Xml_manager(object):
             self._boxes.append([xmin,ymin,xmax,ymax])
 
     def find_size(self):  #加载图像尺寸
-        element_objs = self.root.findall('size')
+        element_objs = self._root.findall('size')
         width = int(element_objs[0].find('width').text)
-        height = int(element_objs[1].find('height').text)
-        depth = int(element_objs[2].find('depth').text)
-        self._size.append(width).append(height).append(depth)
+        height = int(element_objs[0].find('height').text)
+        depth = int(element_objs[0].find('depth').text)
+        self._size.append(width)
+        self._size.append(height)
+        self._size.append(depth)
 
     def get_xml_path(self): #返回路径
         return self._xml_path

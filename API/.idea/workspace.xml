@@ -44,8 +44,8 @@
       <file leaf-file-name="voc_obj.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/object_ops/voc_obj.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="189" column="19" selection-start-line="189" selection-start-column="19" selection-end-line="189" selection-end-column="19" />
+            <state relative-caret-position="2904">
+              <caret line="144" column="18" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -53,11 +53,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="change_xml_label.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/xml_ops/change_xml_label.py">
+      <file leaf-file-name="xml_manager.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/xml_ops/xml_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="660">
+              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#64#0" expanded="true" />
+                <marker date="1541645734967" expanded="true" signature="6390:6403" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -344,7 +348,8 @@
         <state relative-caret-position="154">
           <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
           <folding>
-            <marker date="1541490582467" expanded="true" signature="5716:5729" ph="..." />
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1541645734967" expanded="true" signature="6390:6403" ph="..." />
           </folding>
         </state>
       </provider>
@@ -395,7 +400,8 @@
         <state relative-caret-position="154">
           <caret line="10" column="48" lean-forward="true" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
           <folding>
-            <marker date="1541490582467" expanded="true" signature="5716:5729" ph="..." />
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1541645734967" expanded="true" signature="6390:6403" ph="..." />
           </folding>
         </state>
       </provider>
@@ -446,7 +452,8 @@
         <state relative-caret-position="2024">
           <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="29" />
           <folding>
-            <marker date="1541490582467" expanded="true" signature="5716:5729" ph="..." />
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1541645734967" expanded="true" signature="6390:6403" ph="..." />
           </folding>
         </state>
       </provider>
@@ -480,7 +487,8 @@
         <state relative-caret-position="3542">
           <caret line="164" column="27" selection-start-line="164" selection-start-column="27" selection-end-line="164" selection-end-column="27" />
           <folding>
-            <marker date="1541490582467" expanded="true" signature="5716:5729" ph="..." />
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1541645734967" expanded="true" signature="6390:6403" ph="..." />
           </folding>
         </state>
       </provider>
@@ -542,18 +550,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/xml_ops/xml_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-902">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        <state relative-caret-position="660">
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding>
-            <marker date="1541490582467" expanded="true" signature="5716:5729" ph="..." />
+            <element signature="e#0#64#0" expanded="true" />
+            <marker date="1541645734967" expanded="true" signature="6390:6403" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/object_ops/voc_obj.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="189" column="19" selection-start-line="189" selection-start-column="19" selection-end-line="189" selection-end-column="19" />
+        <state relative-caret-position="2904">
+          <caret line="144" column="18" selection-start-line="144" selection-start-column="18" selection-end-line="144" selection-end-column="18" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
